@@ -20,12 +20,17 @@
     <br>
 	<div>
     <label>AIC version: </label>
-    <form method="post">
-        <input type="checkbox" name="version" value="2.5">2.5
-        <input type="checkbox" name="version" value="3.0" > 3.0
-        <input type="checkbox" name="version" value="3.5" checked> 3.5
-        <input type="submit" value="Submit">
-     </form>
+    <%= form_tag("/index", method: "get") do %>
+    <%= label_tag(:v25, "2.5") %>
+    <%= check_box_tag(:v25, "2.5" ) %>
+    <%= label_tag(:v30, "3.0") %>
+    <%= check_box_tag(:v30, "3.0") %>
+    <%= label_tag(:v35, "3.5") %>
+    <%= check_box_tag(:v35, "3.5") %>
+    <input type="checkbox" name="v25" id="v2445" value="2.5" <%= (@selected_versions.include? "2.5") ? "checked" : "" %>>
+    <%= submit_tag("Submit") %>
+    <% end %>
+    
     </div>
 </div>
 
@@ -42,8 +47,13 @@
                 </div>
                 <div class="listing-content">
                     <h3 class="lead">System Test Repo</h3>
-                    <% @packages.each do |x| %>
-                    <%end%> 
+                    <% @test_repo.each_key do |component| %>
+                        <p><b> <%=  component %> </b></p>
+                        <% @test_repo[component].each_value do |pkg|%>
+                        <p class="p-reduced"><%=  pkg %> </p>
+                        <%end%>
+                    <%end%>
+            
                 </div>
             </div>
         </div>
@@ -55,9 +65,13 @@
                 <div class="listing-content">
 
                     <h3 class="lead">Production Repo</h3>
-			<% @packages.each do |x| %>
-                <p class="p-reduced"><%= x.component%>, <%= x.version%></p>
-            <%end%> 
+			         <% @production_repo.each_key do |component| %>
+                        <p><b> <%=  component %> </b></p>
+                        <% @production_repo[component].each_value do |pkg|%>
+                        <p class="p-reduced"><%=  pkg %> </p>
+                        <%end%>
+
+                    <%end%>
 			
 			
                 </div>

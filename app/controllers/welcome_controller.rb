@@ -4,13 +4,27 @@ require 'date'
 
 def index
 
-pkg = Package.new
 
-file = File.read('details.json')
+@selected_versions= []
+@production_repo = {}
+@test_repo = {}
+
+@selected_versions=params.permit(:v25,:v30,:v35)
+
+p @selected_versions
+file = File.read('test_data.json')
 pkg_hash = YAML.load(file)
-p "**********cp1"
+p "**********cp1"*100
+@production_repo = pkg_hash["Production"]
+@test_repo = pkg_hash["System Test"]
+@test_repo = @test_repo.sort.to_h 	
+@production_repo= @production_repo.sort.to_h
 
-if(!Package.last.nil?)
+end
+#nothing to do with this function , just storing it as backup
+def test_code
+	pkg = Package.new
+	if(!Package.last.nil?)
 	p "**********cp2"
 	if(Date.today.to_date != Package.last.updated_at)
 		pkg_hash.each_key do |key|
