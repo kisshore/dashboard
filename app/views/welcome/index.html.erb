@@ -46,30 +46,44 @@
     </div>
 </div>
 
+<div class="container">
+    <div class="row">
+
+         <div class="col-xs-12 col-sm-12 col-md-6 col-md-6">
+    <!--        <div class="listing listing-default"> 
+                <div class="listing-content"> -->
+                    <h3> System Repo  </h3>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-6 col-md-6">
+            <h3> Production Repo  </h3>
+          </div>
+     </div>
+     <!--   </div>
+    </div> -->
+</div>
+
 
 <!-- Offers List - START -->
 <div class="container">
-  
+   <% @test_repo.each_key do |component| %>
     <div class="row">
+
          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
             <div class="listing listing-default">
               <div class="shape">
                     <div class="shape-text">2.5</div>
                 </div>
                 <div class="listing-content">
-                     <h3 class="lead">System Test Repo</h3>
-                    <% @test_repo.each_key do |component| %>
                         <p><b> <%=  component %> </b></p>
                         <% @test_repo[component].each_value do |pkg|%>
                         <p class="p-reduced"><%=  pkg %> </p>
                         <%end%>
-                    
-                    <%end%>       
                 </div>
             </div>
         </div>
        
         <!----from here to ------>
+        
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
             <div class="listing listing-default">
                 <div class="shape">
@@ -77,17 +91,18 @@
                 </div>
                 <div class="listing-content">
 
-                    <h3 class="lead">Production Repo</h3>
-                     <% @production_repo.each_key do |component| %>
+                    
+                     
                         <p><b> <%=  component %> </b></p>
                         <% @production_repo[component].each_value do |pkg|%>
                         <p class="p-reduced"><%=  pkg %> </p>
                         <%end%>
-                    <%end%>
+                  
                 </div>
             </div>
         </div>
        <!----till here  ------>
+        <%end%> 
     </div>
      
 </div>
