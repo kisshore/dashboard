@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class PackageTest < ActiveSupport::TestCase
+class ShowRepoControllerTest < ActionController::TestCase
   # test "the truth" do
   #   assert true
   # end
