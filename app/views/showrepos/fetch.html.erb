@@ -1,0 +1,32 @@
+<div class="row">
+	<div class="col-md-6 well"> <br>
+	<% @test_repo.each_key do |component| %>
+		<b><center><%= component.capitalize %></center></b>
+		<table class="table table-hover">
+			<% @test_repo[component].each do |key, value| %>
+				<tbody>
+					<tr class="<%= cycle('success', 'danger', 'info', 'active', 'warning') -%>">
+						<td><%= key %></td>
+						<td><%= value.split('_')[1..-1].join.split(/.deb/)[0] %></td>
+					</tr>
+				</tbody>
+			<% end %>
+		</table>
+	<% end %>
+	</div>
+	<div class="col-md-6 well"> <br>
+	<% @production_repo.each_key do |component| %>
+		<b><center><%= component.capitalize %></center></b>
+		<table class="table">
+			<% @production_repo[component].each do |key, value| %>
+				<tbody>
+					<tr class="<%= cycle('info', 'danger', 'success', 'active', 'warning') -%>">
+						<td><%= key %></td>
+						<td><%= value.split('_')[1..-1].join.split(/.deb/)[0] %></td>
+					</tr>
+				</tbody>
+			<% end %>
+		</table>
+	<% end %>
+	</div>
+</div>
