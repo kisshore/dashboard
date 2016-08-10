@@ -13,7 +13,7 @@ class ShowreposController < ApplicationController
 		@filename = ""
 
 		#Please give file path here, this is mandatory
-		@filepath = "/opt/dashboard/"
+		@filepath = "/opt/repo-dashboard/"
 
         unless params[:repo].nil?
 			@filename = @filepath + params[:repo][:service] + '_' + params[:repo][:version].split('.').join('_') + '.json'

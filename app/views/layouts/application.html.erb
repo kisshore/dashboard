@@ -12,7 +12,7 @@
 	<br>
 	<%= form_tag("/fetch", method: "post") do %>	
 		<div class="row">
-			<div class="col-md-6">
+			<div class="col-md-3">
 				<fieldset id="version">
 					<label style="padding-right: 10px;">AIC Version</label>
 					<label class="radio-inline">
@@ -23,23 +23,26 @@
 					</label>
 				</fieldset>
 			</div>
-			<div class="col-md-6">
+			<div class="col-md-9">
 				<fieldset id="service">
 					<label style="padding-right: 10px;">Serivice</label>
 					<label class="radio-inline">
 		    			<input type="radio" name="repo[service]" id="repo_service" value="aic-mos"> aic-mos
 					</label>
 					<label class="radio-inline">
-		    			<input type="radio" name="repo[service]" id="repo_service" value="aic-else-1"> aic-else-1
+		    			<input type="radio" name="repo[service]" id="repo_service" value="aic-orm"> aic-orm
 					</label>
 					<label class="radio-inline">
-		    			<input type="radio" name="repo[service]" id="repo_service" value="aic-else-2"> aic-else-2
+		    			<input type="radio" name="repo[service]" id="repo_service" value="aic-vfd"> aic-vfd
 					</label>
 					<label class="radio-inline">
-		    			<input type="radio" name="repo[service]" id="repo_service" value="aic-else-3"> aic-else-3
+		    			<input type="radio" name="repo[service]" id="repo_service" value="aic-ops"> aic-ops
 					</label>
 					<label class="radio-inline">
-		    			<input type="radio" name="repo[service]" id="repo_service" value="aic-else-4"> aic-else-4
+		    			<input type="radio" name="repo[service]" id="repo_service" value="aic-astra"> aic-astra
+					</label>
+					<label class="radio-inline">
+		    			<input type="radio" name="repo[service]" id="repo_service" value="aic-plugins"> aic-plugins
 					</label>
 				</fieldset>
 			</div>
