@@ -26,11 +26,13 @@ class ShowreposController < ApplicationController
 		if File.file?(@filename)
 			file = File.read(@filename)
 			pkg_hash = YAML.load(file)
-                        if pkg_hash.key?("Production") && pkg_hash.key?("System Test")
+                        if pkg_hash.key?("Production")
          			@production_repo = pkg_hash["Production"]
-	         		@test_repo = pkg_hash["System Test"]
-		        	@test_repo = @test_repo.sort.to_h
 			        @production_repo= @production_repo.sort.to_h
+                        end
+                        if pkg_hash.key?("System Test")
+		        	@test_repo = @test_repo.sort.to_h
+	         		@test_repo = pkg_hash["System Test"]
                         end
 		else
 			@file_existence = 'Data file missing, please check the cron job'
