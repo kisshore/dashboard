@@ -15,18 +15,23 @@ class ShowreposController < ApplicationController
 		#Please give file path here, this is mandatory
 		@filepath = "/opt/repo-dashboard/"
 
-        unless params[:repo].nil?
-			@filename = @filepath + params[:repo][:service] + '_' + params[:repo][:version].split('.').join('_') + '.json'
-			p @filename
+                if not params[:repo].nil? 
+                        if not params[:repo][:service].nil?
+                                if not params[:repo][:version].nil?
+                			@filename = @filepath + params[:repo][:service] + '_' + params[:repo][:version].split('.').join('_') + '.json'
+                                end
+                        end
 		end
 
 		if File.file?(@filename)
 			file = File.read(@filename)
 			pkg_hash = YAML.load(file)
-			@production_repo = pkg_hash["Production"]
-			@test_repo = pkg_hash["System Test"]
-			@test_repo = @test_repo.sort.to_h
-			@production_repo= @production_repo.sort.to_h
+                        if pkg_hash.key?("Production") && pkg_hash.key?("System Test")
+         			@production_repo = pkg_hash["Production"]
+	         		@test_repo = pkg_hash["System Test"]
+		        	@test_repo = @test_repo.sort.to_h
+			        @production_repo= @production_repo.sort.to_h
+                        end
 		else
 			@file_existence = 'Data file missing, please check the cron job'
 		end
