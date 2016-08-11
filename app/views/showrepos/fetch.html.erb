@@ -5,9 +5,9 @@
 		<table class="table table-hover">
 			<% @test_repo[component].each do |key, value| %>
 				<tbody>
-					<tr class="<%= cycle( 'info', 'active') -%>">
-						<td><%= key %></td>
-						<td><%= value.split('_')[1..-1].join.split(/.deb/)[0] %></td>
+					<tr class="<%= cycle('info', 'active') -%>">
+						<!--<td><%= key %></td>-->
+						<td><%= value %></td>
 					</tr>
 				</tbody>
 			<% end %>
@@ -20,9 +20,9 @@
 		<table class="table">
 			<% @production_repo[component].each do |key, value| %>
 				<tbody>
-					<tr class="<%= cycle('info', 'active') -%>">
-						<td><%= key %></td>
-						<td><%= value.split('_')[1..-1].join.split(/.deb/)[0] %></td>
+					<tr class="<%= cycle('active', 'info') -%>">
+						<!--<td><%= key %></td>-->
+						<td><%= value %></td>
 					</tr>
 				</tbody>
 			<% end %>
