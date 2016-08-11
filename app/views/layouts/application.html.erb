@@ -16,10 +16,11 @@
 				<fieldset id="version">
 					<label style="padding-right: 10px;">AIC Version</label>
 					<label class="radio-inline">
-		    			<input type="radio" name="repo[version]" id="repo_version" value="2.5"> 2.5
+		    			<input type="radio" name="repo[version]" id="repo_version" value="2.5" <%= if @version=="2.5" then "checked" end%>> 2.5
+
 					</label>
 					<label class="radio-inline">
-		    			<input type="radio" name="repo[version]" id="repo_version" value="3.0"> 3.0
+		    			<input type="radio" name="repo[version]" id="repo_version" value="3.0"  <%= if @version=="3.0" then "checked" end%>> 3.0
 					</label>
 				</fieldset>
 			</div>
@@ -27,22 +28,22 @@
 				<fieldset id="service">
 					<label style="padding-right: 10px;">Service</label>
 					<label class="radio-inline">
-		    			<input type="radio" name="repo[service]" id="repo_service" value="aic-mos"> aic-mos
+		    			<input type="radio" name="repo[service]" id="repo_service" value="aic-mos" <%= if @service=="aic-mos" then "checked" end%>> aic-mos
 					</label>
 					<label class="radio-inline">
-		    			<input type="radio" name="repo[service]" id="repo_service" value="aic-orm"> aic-orm
+		    			<input type="radio" name="repo[service]" id="repo_service" value="aic-orm" <%= if @service=="aic-orm" then "checked" end%>> aic-orm
 					</label>
 					<label class="radio-inline">
-		    			<input type="radio" name="repo[service]" id="repo_service" value="aic-vfd"> aic-vfd
+		    			<input type="radio" name="repo[service]" id="repo_service" value="aic-vfd" <%= if @service=="aic-vfd" then "checked" end%>> aic-vfd
 					</label>
 					<label class="radio-inline">
-		    			<input type="radio" name="repo[service]" id="repo_service" value="aic-ops"> aic-ops
+		    			<input type="radio" name="repo[service]" id="repo_service" value="aic-ops" <%= if @service=="aic-ops" then "checked" end%>> aic-ops
 					</label>
 					<label class="radio-inline">
-		    			<input type="radio" name="repo[service]" id="repo_service" value="aic-astra"> aic-astra
+		    			<input type="radio" name="repo[service]" id="repo_service" value="aic-astra" <%= if @service=="aic-astra" then "checked" end%>> aic-astra
 					</label>
 					<label class="radio-inline">
-		    			<input type="radio" name="repo[service]" id="repo_service" value="aic-plugins"> aic-plugins
+		    			<input type="radio" name="repo[service]" id="repo_service" value="aic-plugins" <%= if @service=="aic-plugins" then "checked" end%>> aic-plugins
 					</label>
 				</fieldset>
 			</div>

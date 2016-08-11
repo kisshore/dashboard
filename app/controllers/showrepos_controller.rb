@@ -14,10 +14,17 @@ class ShowreposController < ApplicationController
 
 		#Please give file path here, this is mandatory
 		@filepath = "/opt/repo-dashboard/"
+		#@version=params[:repo][:version].nil? ? "" : params[:repo][:version] 
+		#@service=params[:repo][:service].nil? ? "" : params[:repo][:service]
+
+
+
 
                 if not params[:repo].nil? 
                         if not params[:repo][:service].nil?
                                 if not params[:repo][:version].nil?
+		@version=params[:repo][:version].nil? ? "" : params[:repo][:version] 
+		@service=params[:repo][:service].nil? ? "" : params[:repo][:service]
                 			@filename = @filepath + params[:repo][:service] + '_' + params[:repo][:version].split('.').join('_') + '.json'
                                 end
                         end
@@ -31,8 +38,8 @@ class ShowreposController < ApplicationController
 			        @production_repo= @production_repo.sort.to_h
                         end
                         if pkg_hash.key?("System Test")
-		        	@test_repo = @test_repo.sort.to_h
 	         		@test_repo = pkg_hash["System Test"]
+		        	@test_repo = @test_repo.sort.to_h
                         end
 		else
 			@file_existence = 'Data file missing, please check the cron job'
